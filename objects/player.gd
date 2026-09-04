@@ -1,0 +1,22 @@
+class_name Player extends Entity
+
+# プロパティ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+
+# メソッド＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	
+	var input_vector = Input.get_vector('move_left','move_right','move_forward','move_back')
+	move_C.add_move(delta, input_vector)
+	#var input_rotation = Input.get_axis("turn_left", "turn_right")
+	#direction_C.add_direction(delta, input_rotation)
+	var input_rotation = get_global_mouse_position().angle_to_point(position) - PI
+	direction_C.set_direction(delta, input_rotation)
+
+	if Input.is_action_pressed("ui_accept"):
+		attack_C.start_attack()
+	else:
+		attack_C.stop_attack()

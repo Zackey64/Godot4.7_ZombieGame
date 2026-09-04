@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://djqyjofva4gdv"]
+
+[ext_resource type="PackedScene" uid="uid://cp7vi7w3nt7cq" path="res://objects/entity.tscn" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://ic4bxxdeqr20" path="res://objects/player.gd" id="2_dqkch"]
+[ext_resource type="Script" uid="uid://d03lnpgclggpx" path="res://objects/entity.gd" id="3_3rerk"]
+[ext_resource type="PackedScene" uid="uid://d007h4b0um4if" path="res://components/health_component.tscn" id="4_nmc1l"]
+[ext_resource type="PackedScene" uid="uid://dd0v4787scv0o" path="res://components/move_component.tscn" id="5_f46kd"]
+[ext_resource type="PackedScene" uid="uid://bcqs67xgri5fm" path="res://components/aim_component.tscn" id="6_3rerk"]
+
+[node name="Player" unique_id=720074912 instance=ExtResource("1_qhqgy")]
+script = ExtResource("2_dqkch")
+type = ExtResource("3_3rerk")
+
+[node name="HealthComponent" parent="." index="2" unique_id=2022463440 instance=ExtResource("4_nmc1l")]
+max_health = null
+
+[node name="MoveComponent" parent="." index="3" unique_id=1061912466 instance=ExtResource("5_f46kd")]
+walk_speed = null
+run_speed = null
+
+[node name="AimComponent" parent="." index="4" unique_id=987628188 instance=ExtResource("6_3rerk")]

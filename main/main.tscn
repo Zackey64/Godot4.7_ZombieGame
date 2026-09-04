@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b8wiwaqsc33l4"]
+
+[ext_resource type="PackedScene" uid="uid://djqyjofva4gdv" path="res://objects/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://civv7xm2f2bse" path="res://objects/enemy.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=749515444]
+
+[node name="Player" parent="." unique_id=720074912 instance=ExtResource("1_ig7tw")]
+position = Vector2(242, 142)
+motion_mode = 0
+
+[node name="Enemy" parent="." unique_id=629134809 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(947, 379)
+target = NodePath("../Player")
+
+[node name="Enemy2" parent="." unique_id=416194695 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(813, 125)
+target = NodePath("../Player")
+
+[node name="Enemy3" parent="." unique_id=1244856920 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(640, 474)
+target = NodePath("../Player")
+
+[node name="Enemy4" parent="." unique_id=630921309 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(184, 434)
+target = NodePath("../Player")
+
+[node name="Enemy5" parent="." unique_id=1705774613 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(671, 307)
+target = NodePath("../Player")
+
+[node name="Enemy6" parent="." unique_id=272170020 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(114, 347)
+target = NodePath("../Player")
+
+[node name="Enemy7" parent="." unique_id=1586212054 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(423, 425)
+target = NodePath("../Player")

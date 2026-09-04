@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d007h4b0um4if"]
+
+[ext_resource type="Script" uid="uid://cynb24neh8fu0" path="res://components/health_component.gd" id="1_t2tvt"]
+
+[node name="HealthComponent" type="Node2D" unique_id=2022463440]
+script = ExtResource("1_t2tvt")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=262021586]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1189106292]

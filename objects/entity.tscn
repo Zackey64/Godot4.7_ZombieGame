@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cp7vi7w3nt7cq"]
+
+[ext_resource type="Texture2D" uid="uid://8bj4b5ekfc01" path="res://assets/test_body.png" id="1_3qwy0"]
+[ext_resource type="Script" uid="uid://d03lnpgclggpx" path="res://objects/entity.gd" id="1_vmbcy"]
+[ext_resource type="Texture2D" uid="uid://ra1wgup8u5cq" path="res://assets/test_head.png" id="2_a3dev"]
+[ext_resource type="PackedScene" uid="uid://d007h4b0um4if" path="res://components/health/health_component.tscn" id="3_tcdt5"]
+[ext_resource type="PackedScene" uid="uid://dd0v4787scv0o" path="res://components/move/move_component.tscn" id="4_kqrrp"]
+[ext_resource type="PackedScene" uid="uid://bcqs67xgri5fm" path="res://components/direction/direction_component.tscn" id="5_vmbcy"]
+[ext_resource type="PackedScene" uid="uid://kpn07hr18x0i" path="res://components/attack/attack_component.tscn" id="6_kqrrp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nawn8"]
+radius = 16.0
+
+[node name="Entity" type="CharacterBody2D" unique_id=720074912]
+motion_mode = 1
+script = ExtResource("1_vmbcy")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1286636177]
+texture = ExtResource("1_3qwy0")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1674077947]
+texture = ExtResource("2_a3dev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1191733757]
+shape = SubResource("CircleShape2D_nawn8")
+
+[node name="MoveComponent" parent="." unique_id=1061912466 instance=ExtResource("4_kqrrp")]
+
+[node name="DirectionComponent" parent="." unique_id=987628188 instance=ExtResource("5_vmbcy")]
+
+[node name="HealthComponent" parent="." unique_id=2022463440 instance=ExtResource("3_tcdt5")]
+
+[node name="AttackComponent" parent="." unique_id=1197539416 instance=ExtResource("6_kqrrp")]

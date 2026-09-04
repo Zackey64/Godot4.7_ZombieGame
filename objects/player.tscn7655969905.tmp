@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://djqyjofva4gdv"]
+
+[ext_resource type="PackedScene" uid="uid://cp7vi7w3nt7cq" path="res://objects/entity.tscn" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://ic4bxxdeqr20" path="res://objects/player.gd" id="2_dqkch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jlpp"]
+radius = 8.0
+
+[node name="Player" unique_id=720074912 instance=ExtResource("1_qhqgy")]
+script = ExtResource("2_dqkch")
+
+[node name="AttackComponent" parent="." index="6" unique_id=1197539416]
+position = Vector2(16, 0)
+hitbox_shape = SubResource("CircleShape2D_7jlpp")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bcqs67xgri5fm"]
+
+[ext_resource type="Script" uid="uid://cwl5e2tpql3gx" path="res://components/direction/direction_component.gd" id="1_kvld8"]
+
+[node name="DirectionComponent" type="Node2D" unique_id=987628188]
+script = ExtResource("1_kvld8")
