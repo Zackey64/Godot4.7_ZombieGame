@@ -1,38 +1,65 @@
 [gd_scene format=3 uid="uid://b8wiwaqsc33l4"]
 
-[ext_resource type="PackedScene" uid="uid://djqyjofva4gdv" path="res://objects/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://civv7xm2f2bse" path="res://objects/enemy.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://belacx2cwiubw" path="res://objects/entities/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b0qwntc6ytcxy" path="res://objects/entities/enemy.tscn" id="2_0xm2m"]
 
-[node name="Main" type="Node2D" unique_id=749515444]
+[node name="Main" type="Control" unique_id=2134083371]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Player" parent="." unique_id=720074912 instance=ExtResource("1_ig7tw")]
-position = Vector2(242, 142)
-motion_mode = 0
+[node name="World" type="Node2D" parent="." unique_id=42975518]
 
-[node name="Enemy" parent="." unique_id=629134809 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
-position = Vector2(947, 379)
+[node name="Player" parent="World" unique_id=720074912 instance=ExtResource("1_ig7tw")]
+position = Vector2(103, 238)
+
+[node name="Enemy" parent="World" unique_id=852777297 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(127, 52)
 target = NodePath("../Player")
 
-[node name="Enemy2" parent="." unique_id=416194695 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
-position = Vector2(813, 125)
+[node name="Enemy2" parent="World" unique_id=74824360 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(118, 81)
 target = NodePath("../Player")
 
-[node name="Enemy3" parent="." unique_id=1244856920 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
-position = Vector2(640, 474)
+[node name="Enemy3" parent="World" unique_id=1541657017 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(234, 124)
 target = NodePath("../Player")
 
-[node name="Enemy4" parent="." unique_id=630921309 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
-position = Vector2(184, 434)
+[node name="Enemy4" parent="World" unique_id=1217633216 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(103, 31)
 target = NodePath("../Player")
 
-[node name="Enemy5" parent="." unique_id=1705774613 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
-position = Vector2(671, 307)
+[node name="Enemy5" parent="World" unique_id=1644632565 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(93, 119)
 target = NodePath("../Player")
 
-[node name="Enemy6" parent="." unique_id=272170020 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
-position = Vector2(114, 347)
+[node name="Enemy6" parent="World" unique_id=221074787 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(62, 86)
 target = NodePath("../Player")
 
-[node name="Enemy7" parent="." unique_id=1586212054 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
-position = Vector2(423, 425)
+[node name="Enemy7" parent="World" unique_id=364533317 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(73, 46)
 target = NodePath("../Player")
+
+[node name="Enemy8" parent="World" unique_id=552786978 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(151, 120)
+target = NodePath("../Player")
+
+[node name="Enemy9" parent="World" unique_id=1127109406 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(174, 88)
+target = NodePath("../Player")
+
+[node name="Enemy10" parent="World" unique_id=991842733 node_paths=PackedStringArray("target") instance=ExtResource("2_0xm2m")]
+position = Vector2(173, 60)
+target = NodePath("../Player")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1172897398]
+
+[node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=1418681559]
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 219.0
+offset_bottom = 39.0

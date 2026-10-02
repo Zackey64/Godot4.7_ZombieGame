@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://belacx2cwiubw"]
+
+[ext_resource type="PackedScene" uid="uid://cp7vi7w3nt7cq" path="res://objects/entities/entity.tscn" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://ic4bxxdeqr20" path="res://objects/entities/player.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://c7ioc31p2e04j" path="res://objects/weapons/range_weapon.tscn" id="3_ey4km"]
+
+[node name="Player" unique_id=720074912 instance=ExtResource("1_onrkg")]
+script = ExtResource("2_i3pqv")
+
+[node name="RangeWeapon" parent="." index="8" unique_id=785250791 instance=ExtResource("3_ey4km")]

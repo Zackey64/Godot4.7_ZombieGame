@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cp7vi7w3nt7cq"]
+
+[ext_resource type="Script" uid="uid://d03lnpgclggpx" path="res://objects/entities/entity.gd" id="1_hfw7p"]
+[ext_resource type="Texture2D" uid="uid://8bj4b5ekfc01" path="res://assets/test_body.png" id="2_1bj3d"]
+[ext_resource type="Texture2D" uid="uid://ra1wgup8u5cq" path="res://assets/test_head.png" id="3_kwcts"]
+[ext_resource type="PackedScene" uid="uid://dd0v4787scv0o" path="res://components/move/move_component.tscn" id="4_t4fcd"]
+[ext_resource type="PackedScene" uid="uid://bcqs67xgri5fm" path="res://components/direction/direction_component.tscn" id="5_yl1gx"]
+[ext_resource type="PackedScene" uid="uid://d007h4b0um4if" path="res://components/health/health_component.tscn" id="6_70vah"]
+[ext_resource type="PackedScene" uid="uid://kpn07hr18x0i" path="res://components/attack/attack_component.tscn" id="7_seot4"]
+[ext_resource type="PackedScene" uid="uid://cufmadp252erm" path="res://components/attack/attack_receiver_component.tscn" id="8_1bj3d"]
+[ext_resource type="PackedScene" uid="uid://dmpw40tdcc7ot" path="res://components/knockback/knockback_component.tscn" id="9_kwcts"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nawn8"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx4ge"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2b5y"]
+radius = 16.0
+
+[node name="Entity" type="CharacterBody2D" unique_id=720074912]
+motion_mode = 1
+script = ExtResource("1_hfw7p")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1286636177]
+texture = ExtResource("2_1bj3d")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1674077947]
+texture = ExtResource("3_kwcts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1191733757]
+shape = SubResource("CircleShape2D_nawn8")
+
+[node name="MoveComponent" parent="." unique_id=1061912466 instance=ExtResource("4_t4fcd")]
+
+[node name="DirectionComponent" parent="." unique_id=987628188 instance=ExtResource("5_yl1gx")]
+
+[node name="HealthComponent" parent="." unique_id=2022463440 instance=ExtResource("6_70vah")]
+
+[node name="AttackComponent" parent="." unique_id=1197539416 instance=ExtResource("7_seot4")]
+position = Vector2(16, 0)
+hitbox_shape = SubResource("CircleShape2D_lx4ge")
+
+[node name="AttackReceiverComponent" parent="." unique_id=175731501 instance=ExtResource("8_1bj3d")]
+hurtbox_shape = SubResource("CircleShape2D_s2b5y")
+
+[node name="KnockbackComponent" parent="." unique_id=1511798131 instance=ExtResource("9_kwcts")]

@@ -5,6 +5,8 @@
 [node name="AttackComponent" type="Node2D" unique_id=1197539416]
 script = ExtResource("1_5e5ew")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=981883714]
+[node name="HitboxArea" type="Area2D" parent="." unique_id=142182176]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1938189054]
+[node name="HitboxShape" type="CollisionShape2D" parent="HitboxArea" unique_id=2130976790]
+
+[node name="Timer" type="Timer" parent="." unique_id=518940954]

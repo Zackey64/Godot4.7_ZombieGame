@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c7ioc31p2e04j"]
+
+[ext_resource type="PackedScene" uid="uid://bwkbme81gninp" path="res://objects/weapons/weapon.tscn" id="1_bgfly"]
+[ext_resource type="Script" uid="uid://o0a5wwt0pfh7" path="res://objects/weapons/range_weapon.gd" id="2_uvkqw"]
+[ext_resource type="PackedScene" uid="uid://dgqd1f1hhxb7n" path="res://objects/projectiles/bullet.tscn" id="3_uvkqw"]
+
+[node name="RangeWeapon" unique_id=785250791 instance=ExtResource("1_bgfly")]
+script = ExtResource("2_uvkqw")
+projectile = ExtResource("3_uvkqw")
+projectile_speed = 640.0
+projectile_range = 640.0
+interval = 0.05
+spread = 0.05
+attack_trigger = 1
+
+[node name="Timer" type="Timer" parent="." index="0" unique_id=1939689231]
+one_shot = true

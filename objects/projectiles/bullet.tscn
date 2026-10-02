@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dgqd1f1hhxb7n"]
+
+[ext_resource type="PackedScene" uid="uid://dwx8rq1u3a2qh" path="res://objects/projectiles/projectile.tscn" id="1_1ew7b"]
+[ext_resource type="Texture2D" uid="uid://dctojhhmp3fue" path="res://assets/bullet_1.png" id="2_8ym53"]
+[ext_resource type="Script" uid="uid://cs4ad5pogn7ca" path="res://objects/projectiles/bullet.gd" id="2_lqg4f"]
+[ext_resource type="PackedScene" uid="uid://kpn07hr18x0i" path="res://components/attack/attack_component.tscn" id="4_w0aya"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1bky"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdut7"]
+radius = 4.0
+
+[node name="Bullet" unique_id=1874505490 instance=ExtResource("1_1ew7b")]
+script = ExtResource("2_lqg4f")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1720739624]
+rotation = 1.5707964
+texture = ExtResource("2_8ym53")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1345649372]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_c1bky")
+
+[node name="AttackComponent" parent="." index="2" unique_id=1197539416 instance=ExtResource("4_w0aya")]
+damage = 5.0
+knockback = 1.0
+hitbox_shape = SubResource("CircleShape2D_qdut7")

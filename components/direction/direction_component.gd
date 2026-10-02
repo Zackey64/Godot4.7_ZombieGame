@@ -16,19 +16,20 @@ class_name DirectionComponent extends Component
 # ライフサイクルメソッド－－－－－－－－－－－－－
 # 外部呼出メソッド－－－－－－－－－－－－－－－－
 
-func add_direction (delta: float, axis: float) -> void:
+## 角度を速度分加算する。
+func add_rotation (delta: float, axis: float) -> void:
 	if axis == 0:
 		return
 	axis = clamp(axis, -1.0, 1.0)
 	var final_speed = turn_speed * TAU * delta
 	host.rotation += axis * final_speed
 
-func force_set_direction (angle: float) -> void:
-	host.rotation = angle
+func force_set_direction (target_angle: float) -> void:
+	host.rotation = target_angle
 
-func set_direction (delta: float, angle: float) -> void:
+func set_direction (delta: float, target_angle: float) -> void:
 	var final_speed = turn_speed * TAU * delta
-	host.rotation = rotate_toward(host.rotation, angle, final_speed)
+	host.rotation = rotate_toward(host.rotation, target_angle, final_speed)
 
 func set_direction_to_target (delta: float, target: CollisionObject2D) -> void:
 	if target == null:
