@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnnj153h0geo7"
-path="res://.godot/imported/health_icon.png-27afef8328b625b32238d1ad0a339abe.ctex"
+uid="uid://b0awjqga8pocc"
+path="res://.godot/imported/icon_attack.png-ffde3f0b97b36fc328bf9a9d4504f6e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/health/health_icon.png"
-dest_files=["res://.godot/imported/health_icon.png-27afef8328b625b32238d1ad0a339abe.ctex"]
+source_file="res://components/attack/icon_attack.png"
+dest_files=["res://.godot/imported/icon_attack.png-ffde3f0b97b36fc328bf9a9d4504f6e5.ctex"]
 
 [params]
 

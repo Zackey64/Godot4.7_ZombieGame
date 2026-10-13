@@ -2,6 +2,8 @@ class_name Enemy extends Entity
 
 # プロパティ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
+@onready var explosion_C: ExplosionComponent = $ExplosionComponent
+
 @export var target :Entity
 
 # メソッド＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
@@ -17,3 +19,8 @@ func _physics_process(delta: float) -> void:
 		
 		if self.global_position.distance_to(target.global_position) < 40:
 			attack_C.attack()
+
+func on_died(attacker: CollisionObject2D) -> void:
+	explosion_C.explode()
+	super.on_died(attacker)
+	

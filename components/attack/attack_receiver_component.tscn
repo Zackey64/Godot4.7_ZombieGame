@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://wyq3itdmdhnj" path="res://components/attack/attack_receiver_component.gd" id="1_lx4ge"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx4ge"]
+
 [node name="AttackReceiverComponent" type="Node2D" unique_id=175731501]
 script = ExtResource("1_lx4ge")
 
 [node name="HurtboxArea" type="Area2D" parent="." unique_id=1318628205]
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="HurtboxArea" unique_id=170998702]
+shape = SubResource("CircleShape2D_lx4ge")

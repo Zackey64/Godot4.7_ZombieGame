@@ -19,7 +19,10 @@ func _physics_process(delta: float) -> void:
 		destroy()
 
 func _area_entered(area: Area2D):
-	var entity := area.get_parent().get_parent() as Entity
+	var attack_receiver: AttackReceiverComponent = area.get_parent() as AttackReceiverComponent
+	if attack_receiver == null or attack_receiver.host == owner_entity:
+		return
+	var entity := attack_receiver.host
 	if entity and entity != owner_entity:
 		hit(entity)
 

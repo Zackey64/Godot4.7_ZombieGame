@@ -1,10 +1,13 @@
-# @icon("res://components/health.png")
+@icon("res://components/direction/icon_direction.png")
 class_name DirectionComponent extends Component
 ## 向きの機能を追加する。
 
-# シグナル＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-# プロパティ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+# シグナル＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+# プロパティ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 # ノード参照－－－－－－－－－－－－－－－－－－－
+
 # インスペクタ変数－－－－－－－－－－－－－－－－
 
 ## 回転速度（回転/秒）
@@ -12,11 +15,13 @@ class_name DirectionComponent extends Component
 
 # 状態変数－－－－－－－－－－－－－－－－－－－－
 
-# メソッド＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+# メソッド＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 # ライフサイクルメソッド－－－－－－－－－－－－－
+
 # 外部呼出メソッド－－－－－－－－－－－－－－－－
 
-## 角度を速度分加算する。
+## 指定した方向に徐々に回転する
 func add_rotation (delta: float, axis: float) -> void:
 	if axis == 0:
 		return
@@ -24,15 +29,23 @@ func add_rotation (delta: float, axis: float) -> void:
 	var final_speed = turn_speed * TAU * delta
 	host.rotation += axis * final_speed
 
-func force_set_direction (target_angle: float) -> void:
-	host.rotation = target_angle
+# 角度を数値分だけ強制的に追加
+# func force_add_rotation (angle: float) -> void:
 
+## 方位を目標に徐々に合わせる
 func set_direction (delta: float, target_angle: float) -> void:
 	var final_speed = turn_speed * TAU * delta
 	host.rotation = rotate_toward(host.rotation, target_angle, final_speed)
 
+## 方位を目標に強制的に合わせる
+func force_set_direction (target_angle: float) -> void:
+	host.rotation = target_angle
+
+## ターゲットを向く
 func set_direction_to_target (delta: float, target: CollisionObject2D) -> void:
 	if target == null:
 		return
 	var angle = host.global_position.angle_to_point(target.global_position)
 	set_direction(delta, angle)
+
+# シグナルメソッド－－－－－－－－－－－－－－－－

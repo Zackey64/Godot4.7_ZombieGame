@@ -1,4 +1,4 @@
-@icon("res://components/health/health_icon.png")
+@icon("res://components/health/icon_health.png")
 class_name HealthComponent extends Component
 ## 体力の機能を追加する。
 
@@ -38,7 +38,8 @@ func damage(attacker: CollisionObject2D, damage: float) -> void:
 	health -= damage
 	health = clamp(health, 0, max_health)
 	damaged.emit(attacker, damage)
-	if health == 0: died.emit(attacker)
+	if health == 0:
+		died.emit(attacker)
 
 ## 回復する処理
 func heal(amount: float) -> void:

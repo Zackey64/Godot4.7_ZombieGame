@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cp7vi7w3nt7cq" path="res://objects/entities/entity.tscn" id="1_qdut7"]
 [ext_resource type="Script" uid="uid://cjejn364lnueg" path="res://objects/entities/enemy.gd" id="2_41oev"]
+[ext_resource type="PackedScene" uid="uid://c36kn1sg587bh" path="res://components/explosion/explosion_component.tscn" id="3_16j2r"]
 
 [node name="Enemy" unique_id=720074912 instance=ExtResource("1_qdut7")]
 script = ExtResource("2_41oev")
 
 [node name="MoveComponent" parent="." index="3" unique_id=1061912466]
 max_speed = 2.0
+
+[node name="ExplosionComponent" parent="." index="9" unique_id=1728793163 instance=ExtResource("3_16j2r")]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c36kn1sg587bh"]
+
+[ext_resource type="Script" uid="uid://b585cm2hk3yjp" path="res://components/explosion/explosion_component.gd" id="1_buxeu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16j2r"]
+
+[node name="ExplosionComponent" type="Node2D" unique_id=1728793163]
+script = ExtResource("1_buxeu")
+
+[node name="ExplosionArea" type="Area2D" parent="." unique_id=1769535577]
+
+[node name="ExplosionShape" type="CollisionShape2D" parent="ExplosionArea" unique_id=1158345736]
+shape = SubResource("CircleShape2D_16j2r")

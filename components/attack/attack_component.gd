@@ -1,22 +1,22 @@
-@icon("res://components/attack/attack_icon.png")
+@icon("res://components/attack/icon_attack.png")
 class_name AttackComponent extends Component
 ## 攻撃＋当たり判定の機能を追加する。
 ## このコンポーネントは例外的に、食らい判定機能（AttackReceiverComponent）を参照し、攻撃を受けたことをシグナルで通知します。
 
-# シグナル＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+# シグナル＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 ## 自分が攻撃したとき
 signal attacked()
 ## 自分の攻撃が相手に当たったとき
 signal attack_hitted(target: CollisionObject2D)
 
-# プロパティ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+# プロパティ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 # ノード参照－－－－－－－－－－－－－－－－－－－
 
-@onready var area: Area2D = $HitboxArea
-@onready var shape: CollisionShape2D = $HitboxArea/HitboxShape
-@onready var timer: Timer = $Timer
+@onready var _area: Area2D = $HitboxArea
+@onready var _shape: CollisionShape2D = $HitboxArea/HitboxShape
+@onready var _timer: Timer = $Timer
 
 # インスペクタ変数－－－－－－－－－－－－－－－－
 
@@ -36,26 +36,28 @@ signal attack_hitted(target: CollisionObject2D)
 ## 自分が攻撃中かどうか
 var is_attacking: bool = false
 
-# メソッド＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+# メソッド＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 # ライフサイクルメソッド－－－－－－－－－－－－－
 
 func _ready() -> void:
 	super._ready()
 	if hitbox_shape:
-		shape.shape = hitbox_shape
-	area.area_entered.connect(_on_area_entered)
-	timer.one_shot = true
-	timer.timeout.connect(_stop_attack)
-	set_enabled(false)
+		_shape.shape = hitbox_shape
+	_area.area_entered.connect(_on_area_entered)
+	_timer.one_shot = true
+	_timer.timeout.connect(_stop_attack)
+	_set_enabled(false)
 	
 # 外部呼出メソッド－－－－－－－－－－－－－－－－
 
+## 攻撃を開始する処理
 func attack() -> void:
 	if is_attacking:
 		return
 	_start_attack()
 
+## 対象のレシーバーに攻撃情報を通知する処理
 func hit(target: CollisionObject2D) -> void:
 	if target == null:
 		return
@@ -64,25 +66,25 @@ func hit(target: CollisionObject2D) -> void:
 			child.attack_received.emit(host, damage, knockback)
 			return
 
-func set_enabled(enabled: bool) -> void:
-	shape.set_deferred("disabled", not enabled)
-
 # 内部処理メソッド－－－－－－－－－－－－－－－
 
 func _start_attack() -> void:
 	is_attacking = true
 	attacked.emit()
-	timer.start(duration)
-	set_enabled(true) 
+	_timer.start(duration)
+	_set_enabled(true) 
 
 func _stop_attack() -> void:
 	is_attacking = false
-	set_enabled(false)
+	_set_enabled(false)
+
+func _set_enabled(enabled: bool) -> void:
+	_shape.set_deferred("disabled", not enabled)
 
 # シグナルメソッド－－－－－－－－－－－－－－－－
 
 func _on_area_entered(target_area: Area2D) -> void:
-	var attac_recever: AttackReceiverComponent = target_area.get_parent() as AttackReceiverComponent
-	if attac_recever:
-		if attac_recever.host != self.host:
-			attack_hitted.emit(attac_recever.host)
+	var attack_receiver: AttackReceiverComponent = target_area.get_parent() as AttackReceiverComponent
+	if attack_receiver == null or attack_receiver.host == host:
+		return
+	attack_hitted.emit(attack_receiver.host)

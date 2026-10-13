@@ -1,4 +1,4 @@
-@icon("res://components/hurtbox/hurtbox_icon.png")
+@icon("res://components/attack/icon_attack_receiver.png")
 class_name AttackReceiverComponent extends Component
 ## 食らい判定の機能を追加する。
 
@@ -36,9 +36,9 @@ func _ready() -> void:
 	
 # 外部呼出メソッド－－－－－－－－－－－－－－－－
 
-func set_enabled(enabled: bool) -> void:
-	shape.set_deferred("disabled", not enabled)
-
 # 内部処理メソッド－－－－－－－－－－－－－－－－
+
+func _set_enabled(enabled: bool) -> void:
+	shape.set_deferred("disabled", not enabled)
 
 # シグナルメソッド－－－－－－－－－－－－－－－－
